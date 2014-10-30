@@ -10,6 +10,7 @@ public class UsuarioDao {
 	
 	private EntityManager em;
 	
+	
 	public UsuarioDao() {
 		this.em = JPAUtil.getEntityManager();
 	}
