@@ -23,7 +23,7 @@ public class TesteConexao {
 		tx.begin();
 		
 		em.persist(usuario);
-		em.remove(usuario);
+//		em.remove(usuario);
 		
 		tx.commit();
 		

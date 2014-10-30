@@ -2,21 +2,17 @@ package br.com.hotsite.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Usuario {
 
-	@Id @GeneratedValue
-	@Column(name = "USUARIO_ID")
-	private Integer usuarioId;
+	@Id
+	@Column(name = "CPF")
+	private String cpf;
 	
 	@Column(name = "NOME")
 	private String nome;
-	
-	@Column(name = "CPF")
-	private String cpf;
 	
 	@Column(name = "TELEFONE")
 	private String telefone;
@@ -27,14 +23,6 @@ public class Usuario {
 	@Column(name = "EMAIL")
 	private String email;
 	
-	
-	public Integer getUsuarioId() {
-		return usuarioId;
-	}
-	
-	public void setUsuarioId(Integer usuarioId) {
-		this.usuarioId = usuarioId;
-	}
 	
 	public String getNome() {
 		return nome;
