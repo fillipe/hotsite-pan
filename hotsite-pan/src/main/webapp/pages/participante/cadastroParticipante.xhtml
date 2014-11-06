@@ -13,10 +13,53 @@
 
 	<h:form>
 		<h:commandButton value="Logout" action="#{login.doLogout}" />
-		<br/>
-		FAZER FORMULARIO DE CADASTRO
-		<br/>
-		<h:commandButton value="confirmacao de email" action="emailConfirmacao?faces-redirect=true" />
+		<br />
+		<br />
+		FORMULARIO DE CADASTRO
+		<br />
+		<br />
+		<p:panelGrid columns="4" layout="grid">
+
+			<p:outputLabel for="nome" value="Nome: " />
+			<p:inputText id="nome" value="#{usuario.nome}" />
+			<p:outputLabel for="cpf" value="CPF: " />
+			<p:inputMask id="cpf" value="#{usuario.cpf}" mask="999.999.999-99" />
+
+			<p:outputLabel for="telefone" value="Telefone: " />
+			<p:inputMask id="telefone" value="#{usuario.telefone}"
+				mask="(99)9999-9999" />
+			<p:outputLabel for="celular" value="Celular: " />
+			<p:inputMask id="celular" value="#{usuario.celular}"
+				mask="(99)99999-9999" />
+
+			<p:outputLabel for="email" value="E-Mail: " />
+			<p:inputText id="email" value="#{usuario.email}" />
+			<p:outputLabel value="" />
+			<p:outputLabel value="" />
+
+			<p:outputLabel for="unidade" value="Unidade: " />
+			<p:inputText id="unidade" value="#{usuario.unidade}" />
+			<p:outputLabel for="regional" value="Regional: " />
+			<p:inputText id="regional" value="#{usuario.regional}" />
+
+			<p:outputLabel for="cidade" value="Cidade: " />
+			<p:inputText id="cidade" value="#{usuario.cidade}" />
+			<p:outputLabel for="estado" value="Estado: " />
+			<p:inputText id="estado" value="#{usuario.estado}" />
+
+			<p:outputLabel for="gostoMusical" value="Gosto musical: " />
+			<p:inputText id="gostoMusical" value="#{usuario.gostoMusical}" />
+			<p:outputLabel for="status" value="Status: " />
+			<p:selectOneMenu id="status" value="#{usuario.status}"
+				style="width:150px">
+				<f:selectItems value="#{usuario.comboStatus}" />
+			</p:selectOneMenu>
+
+			<br />
+
+			<h:commandButton value="Salvar" action="#{usuario.salvar}" />
+
+		</p:panelGrid>
 	</h:form>
 
 </h:body>
