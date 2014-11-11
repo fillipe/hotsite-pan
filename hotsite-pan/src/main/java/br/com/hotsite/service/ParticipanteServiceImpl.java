@@ -11,4 +11,10 @@ public class ParticipanteServiceImpl implements UsuarioService{
 		return usuarioDao.findByCpf(cpf);
 	}
 
+	@Override
+	public void salva(Usuario usuario) {
+		UsuarioDao dao = new UsuarioDao();
+		dao.persiste(usuario);
+	}
+
 }

@@ -5,5 +5,7 @@ import br.com.hotsite.modelo.Usuario;
 public interface UsuarioService {
 	
 	public Usuario login(String cpf);
+	
+	public void salva(Usuario usuario);
 
 }

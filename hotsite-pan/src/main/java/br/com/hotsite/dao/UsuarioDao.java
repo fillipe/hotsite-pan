@@ -20,12 +20,26 @@ public class UsuarioDao {
 		return usuario;
 	}
 	
-	public void insere(Usuario usuario) {
+	private void insere(Usuario usuario) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		em.persist(usuario);
 		tx.commit();
 		em.close();
+	}
+	
+	public void persiste(Usuario usuario) {
+		Usuario usuarioDB = findByCpf(usuario.getCpf());
+		if (usuarioDB != null) {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			em.merge(usuario);
+			tx.commit();
+			em.close();
+		} else {
+			insere(usuario);
+		}
+		
 	}
 	
 	public void removeByCpf(String cpf) {

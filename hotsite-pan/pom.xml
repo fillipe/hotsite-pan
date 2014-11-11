@@ -4,7 +4,7 @@
   <groupId>br.com.nerv</groupId>
   <artifactId>hotsite-pan</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>hotsite-pan Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -53,10 +53,16 @@
 	
 	<dependency>
 		<groupId>org.hibernate.javax.persistence</groupId>
-		<artifactId>hibernate-jpa-2.0-api</artifactId>
-		<version>1.0.1.Final</version>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>1.0.0.Final</version>
 	</dependency>
 	
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-email</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+		
 	<dependency>
         <groupId>commons-dbcp</groupId>
         <artifactId>commons-dbcp</artifactId>

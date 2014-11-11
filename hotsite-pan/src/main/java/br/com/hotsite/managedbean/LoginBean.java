@@ -4,7 +4,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import br.com.hotsite.modelo.Usuario;
 import br.com.hotsite.service.ParticipanteServiceImpl;
@@ -23,9 +22,12 @@ public class LoginBean {
 		cpf = cpf.replaceAll("[.]", "");
 		cpf = cpf.replaceAll("[-]", "");
 		Usuario usuario = service.login(cpf);
-		if (usuario != null) {
+		if (usuario != null && !isPresencaConfirmada(usuario)) {
 			loggedIn = true;
 			return "participante/cadastroParticipante?faces-redirect=true";
+		} else if (usuario != null && isPresencaConfirmada(usuario)){
+			loggedIn = true;
+			return "participante/paginaInstitucional1?faces-redirect=true";
 		}
 		FacesContext context = FacesContext.getCurrentInstance();
 		FacesMessage mensagem = new FacesMessage("Usuário não existente");
@@ -48,6 +50,15 @@ public class LoginBean {
 
 	public boolean isLoggedIn() {
 		return loggedIn;
+	}
+	
+
+	private boolean isPresencaConfirmada(Usuario usuario) {
+		if (usuario.getPresencaConfirmada() == null) {
+			return false;
+		} else {
+			return usuario.getPresencaConfirmada();
+		}
 	}
 
 }
