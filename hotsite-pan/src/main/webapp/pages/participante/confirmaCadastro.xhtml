@@ -12,7 +12,7 @@
 <h:body>
 
 	<h:form>
-		<h:commandButton value="Logout" action="#{login.doLogout}" />
+		<p:commandButton value="Logout" action="#{login.doLogout}" ajax="false" />
 		<br />
 		<br />
 		CONFIRMAÇÃO DE CADASTRO
@@ -52,8 +52,8 @@
 			
 			<br />
 
-			<h:commandButton value="Voltar" action="#{usuarioBean.voltar}" />
-			<h:commandButton value="Confirmar Cadastro" action="#{usuarioBean.salvar}" />
+			<p:commandButton value="Voltar" action="#{usuarioBean.voltar}" ajax="false" />
+			<p:commandButton value="Confirmar Cadastro" action="#{usuarioBean.salvar}" ajax="false" />
 
 		</p:panelGrid>
 	</h:form>

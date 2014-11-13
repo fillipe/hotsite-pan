@@ -14,20 +14,22 @@ import br.com.hotsite.service.UsuarioService;
 public class LoginBean {
 	
 	private boolean loggedIn;
+	private boolean presencaConfirmada;
 
 	private String cpf;
 	
 	public String doLogin() {
 		UsuarioService service = new ParticipanteServiceImpl();
-		cpf = cpf.replaceAll("[.]", "");
-		cpf = cpf.replaceAll("[-]", "");
-		Usuario usuario = service.login(cpf);
+		String cpfSemMask = cpf.replaceAll("[.]", "");
+		cpfSemMask = cpfSemMask.replaceAll("[-]", "");
+		Usuario usuario = service.login(cpfSemMask);
 		if (usuario != null && !isPresencaConfirmada(usuario)) {
 			loggedIn = true;
-			return "participante/cadastroParticipante?faces-redirect=true";
+			return "/pages/participante/cadastroParticipante";
 		} else if (usuario != null && isPresencaConfirmada(usuario)){
 			loggedIn = true;
-			return "participante/paginaInstitucional1?faces-redirect=true";
+			presencaConfirmada = true;
+			return "/pages/participante/paginaInstitucional1";
 		}
 		FacesContext context = FacesContext.getCurrentInstance();
 		FacesMessage mensagem = new FacesMessage("Usuário não existente");
@@ -36,8 +38,8 @@ public class LoginBean {
 	}
 	
 	public String doLogout() {
-		loggedIn = false;
-		return "/pages/login?faces-redirect=true";
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/pages/login";
 	}
 
 	public String getCpf() {
@@ -59,6 +61,14 @@ public class LoginBean {
 		} else {
 			return usuario.getPresencaConfirmada();
 		}
+	}
+
+	public boolean isPresencaConfirmada() {
+		return presencaConfirmada;
+	}
+
+	public void setPresencaConfirmada(boolean presencaConfirmada) {
+		this.presencaConfirmada = presencaConfirmada;
 	}
 
 }

@@ -14,6 +14,9 @@ public class ParticipanteServiceImpl implements UsuarioService{
 	@Override
 	public void salva(Usuario usuario) {
 		UsuarioDao dao = new UsuarioDao();
+		String cpfSemMask = usuario.getCpf().replaceAll("[.]", "");
+		cpfSemMask = cpfSemMask.replaceAll("[-]", "");
+		usuario.setCpf(cpfSemMask);
 		dao.persiste(usuario);
 	}
 

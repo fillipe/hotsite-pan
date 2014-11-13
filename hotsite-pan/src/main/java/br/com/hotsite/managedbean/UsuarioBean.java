@@ -30,11 +30,11 @@ public class UsuarioBean implements Serializable {
 	
 	
 	public String confirmaCadastro() {
-		return "confirmaCadastro?faces-redirect=true";
+		return "confirmaCadastro";
 	}
 	
 	public String voltar() {
-		return "cadastroParticipante?faces-redirect=true";
+		return "cadastroParticipante";
 	}
 	
 	public String salvar() {
@@ -42,8 +42,11 @@ public class UsuarioBean implements Serializable {
 		usuario.setPresencaConfirmada(true);
 		usuarioService.salva(usuario);
 		
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		session.setAttribute("usuarioBean", null);
+		
 		EmailService emailService = new EmailServiceImpl();
-		emailService.enviaEmailConfirmacaoCadastroParticipante(usuario.getEmail().trim());
+//		emailService.enviaEmailConfirmacaoCadastroParticipante(usuario.getEmail().trim());
 		
 		return "paginaInstitucional1";
 	}

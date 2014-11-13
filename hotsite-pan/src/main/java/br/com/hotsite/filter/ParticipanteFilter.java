@@ -27,17 +27,16 @@ public class ParticipanteFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		
 		LoginBean loginBean = (LoginBean) ((HttpServletRequest) request).getSession().getAttribute("login");
-		UsuarioBean usuarioBean = (UsuarioBean) ((HttpServletRequest) request).getSession().getAttribute("usuarioBean");
 		
 		String contextPath = ((HttpServletRequest) request).getContextPath();
+		String paginaInstitucional = "/pages/participante/paginaInstitucional1.xhtml";
+		String paginaLogin = "/pages/login.xhtml";
 
 		if (loginBean == null || !loginBean.isLoggedIn()) {
-			((HttpServletResponse) response).sendRedirect(contextPath + "/pages/login.xhtml");
-		} else if (usuarioBean != null 
-				&& usuarioBean.getUsuario() != null
-				&& usuarioBean.getUsuario().getPresencaConfirmada() != null
-				&& usuarioBean.getUsuario().getPresencaConfirmada()) {
-			((HttpServletResponse) response).sendRedirect(contextPath + "/pages/participante/paginaInstitucional1.xhtml");
+			((HttpServletResponse) response).sendRedirect(contextPath + paginaLogin);
+		} else if (loginBean != null && loginBean.isPresencaConfirmada()
+				&& !(contextPath + paginaInstitucional).equals(((HttpServletRequest) request).getRequestURI())) {
+			((HttpServletResponse) response).sendRedirect(contextPath + paginaInstitucional);
 		} else {
 			chain.doFilter(request, response);
 		}
