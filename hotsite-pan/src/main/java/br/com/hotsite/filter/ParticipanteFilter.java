@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.hotsite.managedbean.LoginBean;
-import br.com.hotsite.managedbean.UsuarioBean;
 
 public class ParticipanteFilter implements Filter {
 

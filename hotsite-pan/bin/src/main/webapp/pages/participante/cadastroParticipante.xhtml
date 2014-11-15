@@ -23,42 +23,40 @@
 		<p:panelGrid columns="4" layout="grid">
 
 			<p:outputLabel for="cpf" value="CPF: " />
-			<p:inputMask id="cpf" value="#{cadastroUsuario.usuario.cpf}" mask="999.999.999-99" readonly="true" />
+			<p:inputMask id="cpf" value="#{usuarioBean.usuario.cpf}" mask="999.999.999-99" readonly="true" />
 			<p:outputLabel value="" />
 			<p:outputLabel value="" />
 			
 			<p:outputLabel for="nome" value="Nome: " />
-			<p:inputText id="nome" value="#{cadastroUsuario.usuario.nome}" required="true" requiredMessage="Nome obrigatório" />
+			<p:inputText id="nome" value="#{usuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório" />
 			<p:outputLabel for="email" value="E-Mail: " />
-			<p:inputText id="email" value="#{cadastroUsuario.usuario.email}" required="true" requiredMessage="E-Mail obrigatório" />
+			<p:inputText id="email" value="#{usuarioBean.usuario.email}" required="true" requiredMessage="E-Mail obrigatório" />
 			
 			<p:outputLabel for="telefone" value="Telefone: " />
-			<p:inputMask id="telefone" value="#{cadastroUsuario.usuario.telefone}"
+			<p:inputMask id="telefone" value="#{usuarioBean.usuario.telefone}"
 				mask="(99)9999-9999" />
 			<p:outputLabel for="celular" value="Celular: " />
-			<p:inputMask id="celular" value="#{cadastroUsuario.usuario.celular}"
+			<p:inputMask id="celular" value="#{usuarioBean.usuario.celular}"
 				mask="(99)99999-9999" />
 			
 			<p:outputLabel for="unidade" value="Unidade: " />
-			<p:inputText id="unidade" value="#{cadastroUsuario.usuario.unidade}" />
+			<p:inputText id="unidade" value="#{usuarioBean.usuario.unidade}" />
 			<p:outputLabel for="regional" value="Regional: " />
-			<p:inputText id="regional" value="#{cadastroUsuario.usuario.regional}" />
+			<p:inputText id="regional" value="#{usuarioBean.usuario.regional}" />
 
 			<p:outputLabel for="cidade" value="Cidade: " />
-			<p:inputText id="cidade" value="#{cadastroUsuario.usuario.cidade}" />
+			<p:inputText id="cidade" value="#{usuarioBean.usuario.cidade}" />
 			<p:outputLabel for="estado" value="Estado: " />
-			<p:inputText id="estado" value="#{cadastroUsuario.usuario.estado}" />
+			<p:inputText id="estado" value="#{usuarioBean.usuario.estado}" />
 
-			<p:outputLabel for="generos" value="Gosto musical: " />
-			<p:selectManyCheckbox id="generos" value="#{cadastroUsuario.selectedGeneros}" layout="grid" columns="3">
-            	<f:selectItems value="#{cadastroUsuario.generos}" var="genero" itemLabel="#{genero}" itemValue="#{genero}" />
-        	</p:selectManyCheckbox>
+			<p:outputLabel for="gostoMusical" value="Gosto musical: " />
+			<p:inputText id="gostoMusical" value="#{usuarioBean.usuario.gostoMusical}" />
 			<p:outputLabel value="" />
 			<p:outputLabel value="" />
 			
 			<br />
 
-			<p:commandButton value="Próximo" action="#{cadastroUsuario.confirmaCadastro}" ajax="false" />
+			<p:commandButton value="Próximo" action="#{usuarioBean.confirmaCadastro}" ajax="false" />
 
 		</p:panelGrid>
 	</h:form>

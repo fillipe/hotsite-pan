@@ -1,10 +1,12 @@
 package br.com.hotsite.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -41,8 +43,8 @@ public class Usuario implements Serializable {
 	@Column(name = "REGIONAL")
 	private String regional;
 	
-	@Column(name = "GOSTO_MUSICAL")
-	private String gostoMusical;
+	@ManyToMany
+	private List<GostoMusical> gostosMusicais;
 	
 	@Column(name = "CONFIRMADO")
 	private Boolean presencaConfirmada;
@@ -119,21 +121,21 @@ public class Usuario implements Serializable {
 	public void setRegional(String regional) {
 		this.regional = regional;
 	}
-
-	public String getGostoMusical() {
-		return gostoMusical;
-	}
-
-	public void setGostoMusical(String gostoMusical) {
-		this.gostoMusical = gostoMusical;
-	}
-
+	
 	public String getEstado() {
 		return estado;
 	}
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public List<GostoMusical> getGostosMusicais() {
+		return gostosMusicais;
+	}
+
+	public void setGostosMusicais(List<GostoMusical> gostosMusicais) {
+		this.gostosMusicais = gostosMusicais;
 	}
 	
 }

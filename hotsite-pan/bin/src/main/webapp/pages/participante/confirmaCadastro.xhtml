@@ -21,39 +21,39 @@
 		<p:panelGrid columns="4" layout="grid">
 
 			<p:outputLabel for="nome" value="Nome: " />
-			<p:outputLabel id="nome" value="#{cadastroUsuario.usuario.nome}" />
+			<p:outputLabel id="nome" value="#{usuarioBean.usuario.nome}" />
 			<p:outputLabel for="cpf" value="CPF: " />
-			<p:outputLabel id="cpf" value="#{cadastroUsuario.usuario.cpf}" />
+			<p:outputLabel id="cpf" value="#{usuarioBean.usuario.cpf}" />
 
 			<p:outputLabel for="telefone" value="Telefone: " />
-			<p:outputLabel id="telefone" value="#{cadastroUsuario.usuario.telefone}" />
+			<p:outputLabel id="telefone" value="#{usuarioBean.usuario.telefone}" />
 			<p:outputLabel for="celular" value="Celular: " />
-			<p:outputLabel id="celular" value="#{cadastroUsuario.usuario.celular}" />
+			<p:outputLabel id="celular" value="#{usuarioBean.usuario.celular}" />
 
 			<p:outputLabel for="email" value="E-Mail: " />
-			<p:outputLabel id="email" value="#{cadastroUsuario.usuario.email}" />
+			<p:outputLabel id="email" value="#{usuarioBean.usuario.email}" />
 			<p:outputLabel value="" />
 			<p:outputLabel value="" />
 
 			<p:outputLabel for="unidade" value="Unidade: " />
-			<p:outputLabel id="unidade" value="#{cadastroUsuario.usuario.unidade}" />
+			<p:outputLabel id="unidade" value="#{usuarioBean.usuario.unidade}" />
 			<p:outputLabel for="regional" value="Regional: " />
-			<p:outputLabel id="regional" value="#{cadastroUsuario.usuario.regional}" />
+			<p:outputLabel id="regional" value="#{usuarioBean.usuario.regional}" />
 
 			<p:outputLabel for="cidade" value="Cidade: " />
-			<p:outputLabel id="cidade" value="#{cadastroUsuario.usuario.cidade}" />
+			<p:outputLabel id="cidade" value="#{usuarioBean.usuario.cidade}" />
 			<p:outputLabel for="estado" value="Estado: " />
-			<p:outputLabel id="estado" value="#{cadastroUsuario.usuario.estado}" />
+			<p:outputLabel id="estado" value="#{usuarioBean.usuario.estado}" />
 
 			<p:outputLabel for="gostoMusical" value="Gosto musical: " />
-			<p:outputLabel id="gostoMusical" value="#{cadastroUsuario.generosSelecionados}" />
+			<p:outputLabel id="gostoMusical" value="#{usuarioBean.usuario.gostoMusical}" />
 			<p:outputLabel value="" />
 			<p:outputLabel value="" />
 			
 			<br />
 
-			<p:commandButton value="Voltar" action="#{cadastroUsuario.voltar}" ajax="false" />
-			<p:commandButton value="Confirmar Cadastro" action="#{cadastroUsuario.salvar}" ajax="false" />
+			<p:commandButton value="Voltar" action="#{usuarioBean.voltar}" ajax="false" />
+			<p:commandButton value="Confirmar Cadastro" action="#{usuarioBean.salvar}" ajax="false" />
 
 		</p:panelGrid>
 	</h:form>
